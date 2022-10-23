@@ -1,0 +1,2 @@
+To get the activity names where permission are enabled
+adb shell "pm dump <PACKAGE_NAME> | grep -A 1 MAIN"

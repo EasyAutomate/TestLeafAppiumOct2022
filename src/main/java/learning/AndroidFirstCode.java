@@ -13,7 +13,7 @@ import io.appium.java_client.android.AndroidDriver;
 public class AndroidFirstCode {
 public static void main(String[] args) throws MalformedURLException, InterruptedException {
 	DesiredCapabilities dc = new DesiredCapabilities();
-	dc.setCapability("appium:app", "C:\\Users\\lokthy\\OneDrive - ASSA ABLOY Group\\Desktop\\apks\\leaforg.apk");
+	dc.setCapability("appium:app", System.getProperty("user.dir")+"\\apks\\leaforg.apk");
 	dc.setCapability("appium:deviceName", "my emulator");
 	//dc.setCapability("platformName", "Android");
 	//AppiumDriver driver = new AppiumDriver(new URL("http://0.0.0.0:4723/wd/hub"), dc);
