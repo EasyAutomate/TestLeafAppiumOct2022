@@ -1,0 +1,42 @@
+NFR
+1. Battery drain %
+2. Phone interuption
+3. Internal Storage full
+4. Ram almost full
+
+Interview
+1. Test Bed
+2. Types of Apps
+3. Framework built for Android and iOS
+4. Default OS version supported by Appium for Android and iOS
+5. Appium Workflow - Hybrid, Native, Mobile Web
+6. Vendor specific mechanism
+7. Which version of Appium support XCUITest and UiAutomator2
+8. Can I run iOS test cases from Windows/Linux client machine
+9. Why iOS test cases cannot run on Windows/Linux client machine
+10. Does nodes are manually connected in Appium
+11. Available locators
+12. Attribute name of the available locators
+13. Softwares to be installed for Android --> IDE, Java (JDK 8), Android Cmd line tools, Appium Server and Inspector
+14. ADB commands
+15. abd devices --> possible options
+16. Mandatory caps in Android
+17. Can I skip the platformName capability in DC
+
+
+
+Challenges
+1. Hybrid Native --> Release/Production build cannot be tested
+2. Hybrid Native/Native --> Mostly Xpath would be used
+3. If Appium version is lower, there are chances of failure in latest OS devices
+4. Port no of the Server, Client, Bootstrap.jar installed in device are default if it is not explicitly mentioned
+5. Socket Hangup error is thrown if any of the port is not responding 
+	1. Close the app by code everytime
+	2. Wait for 60 sec (based on newCommandTimeout capability)
+	3. Delete the apps in Mobile
+	4. Kill the appium server and adb and then start again
+6. App could not be installed in device due to below factors
+	1. Admin permission for Appium and ADB
+	2. If custom OS is installed, we need to enable setting in USB debugging
+7. When VDM is modified in code, Appium Server should be restarted and Server, Client, Bootstrap.jar installed in device should be uninstalled
+	
