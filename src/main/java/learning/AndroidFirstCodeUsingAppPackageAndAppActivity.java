@@ -10,11 +10,12 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 
-public class AndroidFirstCode {
+public class AndroidFirstCodeUsingAppPackageAndAppActivity {
 public static void main(String[] args) throws MalformedURLException, InterruptedException {
 	DesiredCapabilities dc = new DesiredCapabilities();
-	dc.setCapability("appium:app", System.getProperty("user.dir")+"/apks/leaforg.apk");
 	dc.setCapability("appium:deviceName", "my emulator");
+	dc.setCapability("appPackage", "com.testleaf.leaforg");
+	dc.setCapability("appActivity", "com.testleaf.leaforg.MainActivity");
 	//dc.setCapability("platformName", "Android");
 	//AppiumDriver driver = new AppiumDriver(new URL("http://0.0.0.0:4723/wd/hub"), dc);
 	AndroidDriver driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"), dc);
