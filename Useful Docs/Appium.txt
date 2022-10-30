@@ -25,6 +25,10 @@ Interview
 18. Scenario where the apk file might not be provided
 19. Default time duration for swipe recommended in Appium (600 ms)
 20. How many ways the swipe can be performed
+21. all methods in wrappers
+22. How to switch to multiple pages in web browser
+23. Diference between activateApp and driver.startActivity() methods
+24. driver.startActivity() is applicable for iOS
 
 
 Challenges
@@ -51,6 +55,22 @@ Challenges
 15. Failure for TouchAction, MultiTouchAction
 16. In PointerInput for iOS, the button are being clicked when createPointerDown is called
 17. Scroll/swipe should be perform on element with scrollable att set as true
+18. autoGrantPermissions will always search for a element with id as button2. If found then it will chick that element
+19. If object is created using AndroidDriver or IOSDriver then the platformName cap should not be provided in code
+20. If I switch the context the implicit wait duration is reset to 0
+21. isKeyboardShown will return false if the on screen keyboard is a numeric keyboard
+22. Appium can automate only visible portion of the screen
+23. activateApp method can fail if the appActivity in manifest doesnot have permission
+24. Phone should be connected via USB cable while perform Wi-Fi & Mobile Data on/off scenarios
+25. Physical keyboard actions like Keys.Enter will not be working in webview. In Android, native android keys layout is used
+26. GetContextHandles() will print the webview running in background as well
+27. Always try to switch to the right WEBVIEW since the GetContextHandles() returns Set<String>
+28. AppiumBy using Id and Name locators cannot be identified 
+29. Appium Inspector cannot click on overlapping element
+30. In older appium versions, switching between web app to native/hybrid app was not possible
+31. If session is created for Browser (Mobile Web), then we can switch to Native context only. WebView context will work only for Browser (Mobile Web)
+32. If session is created as an App (Native/Hybrid), then we can switch between Native, WebView in App , WebView in Mobile App
+
 
 
 	
