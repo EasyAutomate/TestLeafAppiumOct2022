@@ -1,26 +1,18 @@
 package pages;
 
-import java.time.Duration;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
-import com.aventstack.extentreports.ExtentTest;
-
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.cucumber.java.en.Given;
 //import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import wrappers.GenericWrappers;
 
 public class LoginPage extends GenericWrappers {
-//	String platform;
-	public LoginPage(AppiumDriver driver, ExtentTest test) {
-		this.driver = driver;
-		this.test = test;
-//		platform = driver.getCapabilities().getCapability("platformName").toString();
-//		System.out.println(platform);
-		PageFactory.initElements(new AppiumFieldDecorator(driver, Duration.ofSeconds(60)), this);
+
+	public LoginPage() {
+		PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);
 		eleIsDisplayed(emailTxtBox);
 	}
 
@@ -36,30 +28,21 @@ public class LoginPage extends GenericWrappers {
 	// @iOSXCUITFindBy(id = "")
 	private WebElement loginBtn;
 
+	@Given("Enter the username as {string}")
 	public LoginPage enterEmailAddress(String email) {
-		if (enterValue(emailTxtBox, email)) {
-			reportStep("Username entered successfully", "pass");
-		} else {
-			reportStep("Username entry failed", "fail");
-		}
+		enterValue(emailTxtBox, email);
 		return this;
 	}
 
+	@Given("Enter the password as {string}")
 	public LoginPage enterPassword(String pwd) {
-		if (enterValue(pwdTxtBox, pwd)) {
-			reportStep("Password entered successfully", "pass");
-		} else {
-			reportStep("Password entry failed", "fail");
-		}
+		enterValue(pwdTxtBox, pwd);
 		return this;
 	}
 
+	@Given("Click login button")
 	public HomePage clickLogin() {
-		if (click(loginBtn)) {
-			reportStep("Login button clicked successfully", "pass");
-		} else {
-			reportStep("Login button click failed", "fail");
-		}
-		return new HomePage(driver, test);
+		click(loginBtn);
+		return new HomePage();
 	}
 }
