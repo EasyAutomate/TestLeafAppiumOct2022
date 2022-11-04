@@ -10,3 +10,4 @@ release.properties
 .DS_STORE
 */.DS_STORE
 /bin/
+/reports/*
