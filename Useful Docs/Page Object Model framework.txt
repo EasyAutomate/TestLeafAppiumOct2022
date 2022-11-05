@@ -1,0 +1,77 @@
+Page Object Model framework
+
+1. We should have all re-usable methods in a separate class
+2. Each page should be a separate class
+3. Every page/class should extend the re-usable methods class
+4. Each and every action should be a separate method in that page/class
+5. Every method should have a return type and it should return to the page where it lands after completing the action
+6. Verify the page it has been landed
+
+Build Management tool -- maven
+
+src/main/java
+wrappers
+	GenericWrappers.java
+		public void enterData(WebElement ele,String data) {
+		ele.sendKeys(data);
+		}
+pages
+	CommonPage.java extends GenericWrappers.java
+		public LoginPage launchAppInDevice() {
+		launchApp("appPackage","AppActivity"....);
+		return new LoginPage();
+	LoginPage.java extends GenericWrappers.java
+		public LoginPage() {
+		eleIsDisplayed(driver.findElement(By.Id("user"));
+		}
+		
+		public LoginPage enterUsername(String userName) {
+		enterData(driver.findElement(By.Id("user")),userName);
+		return new LoginPage();
+		}
+		public LoginPage clearUsername() {
+		clearData(driver.findElement(By.Id("user"));
+		return new LoginPage();
+		}
+		public HomePage clickLoginButton() {
+		click(driver.findElement(By.Id("login1"));
+		return new HomePage();
+		}
+		public LoginPage clickLoginButtonForFailure() {
+		click(driver.findElement(By.Id("login"));
+		return new LoginPage();
+		}
+
+	HomePage.java extends GenericWrappers.java
+		public HomePage() {
+		eleIsDisplayed(driver.findElement(By.Id("homePageTitle"));
+		}
+	....
+src/main/resources
+src/test/java
+testCases
+	TC001.java
+		public static void main(String[] args) {
+		new LoginPage().launchAppInDevice().enterUsername("lokesh").clickLoginButton();
+		}
+src/test/resources
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+Cucumber
+	
+Gherkin language
+
+Keywords
+Given - Pre-condition
+When - Step execution
+Then - Expected result
+And - Additional step for any keyword
+But - Expected result (Negative scenario)
+* - Wild card (any)
+
+Rules of Cucumber
+1. Feature file is ready
+2. Create the defenition for each step
+3. Add the automation library and add the implementation for each step def
+
+Build Management tool -- maven
+
+src/main/java
+stepDef
+	StepDef.java
+		public AppiumDriver driver;
+		public void launchApp(.......) {
+		........
+		driver = new AndroidDriver(......);
+		}
+		
+		
+		@Given("The application is launched")
+		public void a() {
+		launchApp(.......);
+		}
+
+		@Given("User logged in with valid credentials")
+		public void b() {
+		enterData(usernameTextBox,userName);
+		enterData(passwordTextBox,password);
+		click(loginBtn);
+		}
+
+		@Given("Home page is displayed")
+		public void c() {
+		eleIsDisplayed(driver.findElement(By.Id("homePageTitle"));
+		}
+src/main/resources
+src/test/java
+runner
+	TestRunner.java
+		@CucumberOptions(feature={"src/test/resources/features/Login.feature"},glue={"stepDef"})
+src/test/resources
+features
+	Login.feature
+		Feature: Login funtionality
+	
+		Scenario: Positive flow
+		Given The application is launched
+		When User logged in with valid credentials
+		Then Home page is displayed

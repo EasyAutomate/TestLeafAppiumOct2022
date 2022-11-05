@@ -1,0 +1,140 @@
+Manual testing
+
+Test suite
+Scenario
+Test cases
+Steps
+
+
+TestNG
+
+suite
+test
+class
+method (@Test)
+
+Cucumber
+
+Project
+Feature
+Scenario
+Steps
+
+
+
+TestNG
+@BS
+	@BT
+		@BC
+			@BM
+				@Test
+			@AM
+		@AC
+	@AT
+@AS
+
+Build Management tool -- maven
+
+src/main/java
+wrappers
+	GenericWrappers.java
+		ThreadLocal ---> public AppiumDriver driver;
+		public void launchApp(.......) {
+		........
+		driver.set(new AndroidDriver(......));
+		}
+		
+		public void enterData(WebElement ele,String data) {
+		ele.sendKeys(data);
+		}
+pages
+	
+	LoginPage.java extends GenericWrappers.java
+		public LoginPage() {
+		PageFactory.initElements(new AppiumFieldDecorator(getdriver()),this);
+		eleIsDisplayed(driver.findElement(By.Id("user"));
+		}
+
+		@AndroidFindBy(id="user1")
+		@iOSXCUITFindBy(xpath="//*[@text='Username']")
+		private WebElement usernameTextBox;
+		
+		
+		public LoginPage enterUsername(String userName) {
+		enterData(usernameTextBox,userName);
+		return this;
+		}
+		public LoginPage clearUsername() {
+		clearData(usernameTextBox);
+		return this;
+		}
+		public HomePage clickLoginButton() {
+		click(driver.findElement(By.Id("login1"));
+		return new HomePage();
+		}
+		public LoginPage clickLoginButtonForFailure() {
+		click(driver.findElement(By.Id("login"));
+		return this;
+		}
+
+	HomePage.java extends GenericWrappers.java
+		public HomePage() {
+		eleIsDisplayed(driver.findElement(By.Id("homePageTitle"));
+		}
+	....
+src/main/resources
+src/test/java
+facade
+	CommonFacade.java
+		GenericWrappers gm = new GenericWrappers();
+		@Given("The application is launched")
+		public void a() {
+		gm.launchApp(.......);
+		}
+	LoginPageFacade.java
+		LoginPage lp = new LoginPage();
+		@Given("User logged in with valid credentials")
+		public void b() {
+		lp.enterData(usernameTextBox,userName);
+		lp.enterData(passwordTextBox,password);
+		lp.click(loginBtn);
+		}
+	HomePageFacade.java
+		HomePage hp = new HomePage();
+		@Given("Home page is displayed")
+		public void c() {
+		hp.eleIsDisplayed(driver.findElement(By.Id("homePageTitle"));
+		}
+	
+
+runner
+	TestRunner.java
+		@CucumberOptions(feature={"src/test/resources/features/Login.feature"},glue={"stepDef"},plugin={....extentReport})
+src/test/resources
+features
+	Login.feature
+		Feature: Login funtionality
+	
+		Scenario: Positive flow
+		Given The application is launched
+		When User logged in with valid credentials
+		Then Home page is displayed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
