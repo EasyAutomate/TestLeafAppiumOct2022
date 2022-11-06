@@ -1,0 +1,17 @@
+Appium
+
+Mandatory caps if IPA/APP file is available
+
+platformName --> iOS
+deviceName --> Exact Match (Simulator) , Any (iPhone real devices)
+app --> Absolute Path of my IPA/APP in my local machine
+
+Mandatory caps if IPA/APP file is not available
+
+platformName --> Android
+deviceName --> Any (Android)
+bundleId --> Bundle identifier given by developer (We need to get the same from Dev team)
+automationName --> XCUITest
+Below are mandatory if you run on cloud provider / Developer of WebDriverAgent and Developer of AUT differs
+xcodeOrgId --> Team ID of the developer who built the AUT
+xcodeSigningId --> iPhone Developer
