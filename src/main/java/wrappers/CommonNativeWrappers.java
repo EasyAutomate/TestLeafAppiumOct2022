@@ -11,12 +11,7 @@ import java.util.Arrays;
 import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.ScreenOrientation;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.PointerInput.Kind;
@@ -369,8 +364,9 @@ public class CommonNativeWrappers {
 		if (driver.getCapabilities().getPlatformName().toString().equalsIgnoreCase("Android")) {
 			bounds = ele.getAttribute("bounds");
 		} else if (driver.getCapabilities().getPlatformName().toString().equalsIgnoreCase("iOS")) {
-			bounds = "[" + ele.getAttribute("x") + "," + ele.getAttribute("y") + "][" + ele.getAttribute("width") + ","
-					+ ele.getAttribute("height") + "]";
+			Rectangle rect = ele.getRect();
+			bounds = "[" + rect.getX() + "," + rect.getY() + "][" + (rect.getX() + rect.getWidth()) + ","
+					+ (rect.getY() + rect.getHeight()) + "]";
 		}
 		String[] split = bounds.replace("][", "!").replace("[", "").replace("]", "").split("!");
 		String[] eleStart = split[0].split(",");

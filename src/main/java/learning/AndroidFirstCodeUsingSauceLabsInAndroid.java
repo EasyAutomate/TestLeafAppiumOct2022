@@ -23,7 +23,7 @@ public static void main(String[] args) throws MalformedURLException, Interrupted
 	sauceOptions.setCapability("name", "<your test name>");
 	caps.setCapability("sauce:options", sauceOptions);
 
-	URL url = new URL("https://appiumoct2022:6183b6c3-6cb2-4825-9c72-bf8e9c6ad29c@ondemand.us-west-1.saucelabs.com:443/wd/hub");
+	URL url = new URL("https://appium1321:4386a764-7c64-4349-a250-71b4a807b1ce@ondemand.us-west-1.saucelabs.com:443/wd/hub");
 	AndroidDriver driver = new AndroidDriver(url, caps);
 	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 	driver.findElement(By.className("android.widget.EditText")).sendKeys("rajkumar@testleaf.com");

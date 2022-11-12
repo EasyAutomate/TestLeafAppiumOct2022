@@ -70,7 +70,15 @@ Challenges
 30. In older appium versions, switching between web app to native/hybrid app was not possible
 31. If session is created for Browser (Mobile Web), then we can switch to Native context only. WebView context will work only for Browser (Mobile Web)
 32. If session is created as an App (Native/Hybrid), then we can switch between Native, WebView in App , WebView in Mobile App
-
+33. While performing swipe using PointerInput in iOS, there are chances that element in start position gets clicked (may work sometimes)
+34. Swipe within webelement using pointer input might not work in PickerWheel of iOS (may work sometimes)
+35. While using selectPickerWheelValue in executeScript command, update the value based on the screen size else it would end up in multiple value swipe or next/previous element would not be selected.
+36. Webview value in iOS may change. So hardcoded value might not work
+37. In iOS, only the visible portion of screen can be used for WebView
+38. I need to view the screen for WebView automation
+39. For WebView in both platform, I cannot use cloud providers
+40. If noReset is set as true, then the app will not kill and restart for every session in iOS. Solution is to terminate and relaunch everytime
+41. In iOS, we need to use keyboard operation as NATIVE view only
 
 
 	
